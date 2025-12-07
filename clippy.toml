@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 absolute-paths-allowed-crates = [
     "axum",
     "axum_proxy",
@@ -5,6 +6,11 @@ absolute-paths-allowed-crates = [
     "tokio",
     "tracing_subscriber",
 ]
+||||||| 8b1448d6
+absolute-paths-allowed-crates = ["std"]
+=======
+absolute-paths-allowed-crates = ["std"]
+>>>>>>> upstream/main
 disallowed-methods = [
     # https://github.com/serde-rs/json/issues/160
     "serde_json::from_reader",
