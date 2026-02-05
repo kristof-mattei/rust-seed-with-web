@@ -198,3 +198,14 @@ fn main() -> Result<(), eyre::Report> {
 
     result
 }
+
+#[cfg(test)]
+mod tests {
+
+    use super::build_configs;
+
+    #[test]
+    fn validate_filter() {
+        build_configs().unwrap();
+    }
+}
