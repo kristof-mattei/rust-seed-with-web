@@ -5,26 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug executable 'rust-seed-with-web'",
+            "name": "Debug executable 'fitness-log'",
             "type": "lldb",
             "request": "launch",
             "cargo": {
-                "args": ["run", "--bin=rust-seed-with-web"]
+                "args": ["run", "--bin=fitness-log"]
             },
             "args": [],
             "env": {
                 "RUST_BACKTRACE": "1",
-                "RUST_LOG": "DEBUG,rust_seed_with_web=TRACE,tower_http::trace=TRACE"
+                "RUST_LOG": "DEBUG,fitness_log=TRACE,tower_http::trace=TRACE"
             },
             "internalConsoleOptions": "neverOpen",
             "terminal": "integrated"
         },
         {
-            "name": "Debug executable 'rust-seed-with-web' without RUST_LOG",
+            "name": "Debug executable 'fitness-log' without RUST_LOG",
             "type": "lldb",
             "request": "launch",
             "cargo": {
-                "args": ["run", "--bin=rust-seed-with-web"]
+                "args": ["run", "--bin=fitness-log"]
             },
             "args": [],
             "env": {
@@ -34,15 +34,15 @@
             "terminal": "integrated"
         },
         {
-            "name": "Debug unit tests in executable 'rust-seed-with-web'",
+            "name": "Debug unit tests in executable 'fitness-log'",
             "type": "lldb",
             "request": "launch",
             "cargo": {
-                "args": ["test", "--bin=rust-seed-with-web"]
+                "args": ["test", "--bin=fitness-log"]
             },
             "env": {
                 "RUST_BACKTRACE": "1",
-                "RUST_LOG": "DEBUG,rust_seed_with_web=TRACE,tower_http::trace=TRACE"
+                "RUST_LOG": "DEBUG,fitness_log=TRACE,tower_http::trace=TRACE"
             },
             "internalConsoleOptions": "neverOpen",
             "terminal": "integrated"
@@ -56,7 +56,7 @@
             },
             "env": {
                 "RUST_BACKTRACE": "1",
-                "RUST_LOG": "DEBUG,rust_seed_with_web=TRACE,tower_http::trace=TRACE"
+                "RUST_LOG": "DEBUG,fitness_log=TRACE,tower_http::trace=TRACE"
             },
             "internalConsoleOptions": "neverOpen",
             "terminal": "integrated"

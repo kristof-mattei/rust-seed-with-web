@@ -40,7 +40,7 @@ export default defineConfig(({ mode }) => {
             tailwindcss(),
             codecovVitePlugin({
                 enableBundleAnalysis: environment["GITHUB_ACTIONS"] === "true",
-                bundleName: "rust-seed-with-web-front-end",
+                bundleName: "fitness-log-front-end",
                 oidc: {
                     useGitHubOIDC: true,
                 },
@@ -49,6 +49,7 @@ export default defineConfig(({ mode }) => {
         ],
         optimizeDeps: {
             noDiscovery: true,
+            include: ["react", "react-dom", "react-dom/client"],
             // exclude: ["src/entrypoints/index.ts"],
         },
         root: "front-end/src",
@@ -62,7 +63,7 @@ export default defineConfig(({ mode }) => {
             },
             cors: true,
             proxy: {
-                "/socket.io": {
+                "/api": {
                     target: "http://localhost:3000",
                     changeOrigin: true,
                     secure: false,

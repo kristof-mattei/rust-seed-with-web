@@ -1,17 +1,17 @@
 [workspace]
 resolver = "3"
-members = ["crates/shared", "crates/rust-seed-with-web"]
+members = ["crates/*"]
 
 [workspace.package]
 version = "0.0.0-development"
 edition = "2024"
 rust-version = "1.93.1"
 authors = ["Kristof Mattei"]
-description = "rust-seed-with-web in Rust"
+description = "fitness-log in Rust"
 license = "MIT"
 categories = ["fun"]
 keywords = ["random"]
-repository = "https://github.com/kristof-mattei/rust-seed-with-web"
+repository = "https://github.com/kristof-mattei/fitness-log"
 include = ["crates/**", "/LICENSE", "/LICENSE-*"]
 
 [workspace.dependencies]
