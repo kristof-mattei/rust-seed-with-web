@@ -1,8 +1,8 @@
 import type React from "react";
 import { useEffect, useState } from "react";
 
-import { getExerciseMax, getTodaysRecords, recordExercise } from "@/services/mock-api";
-import type { Exercise, ExerciseMax, ExerciseRecord, Machine } from "@/types/fitness";
+import { getExerciseMax, getTodaysRecords, recordExercise } from "@/services/mock-api.ts";
+import type { Exercise, ExerciseMax, ExerciseRecord, Machine } from "@/types/fitness.ts";
 
 interface ExerciseFormProperties {
     machine: Machine;
@@ -24,30 +24,37 @@ export const ExerciseForm: React.FC<ExerciseFormProperties> = ({ machine, exerci
     const [saveCount, setSaveCount] = useState<number>(0);
 
     useEffect(() => {
-        let cancelled = false;
+        const controller = new AbortController();
 
         void (async () => {
-            const [maxData, todayData] = await Promise.all([
-                getExerciseMax(exercise.id),
-                getTodaysRecords(exercise.id),
-            ]);
+            try {
+                // Pass controller.signal to your fetch calls if they support it
+                const [maxData, todayData] = await Promise.all([
+                    getExerciseMax(exercise.id),
+                    getTodaysRecords(exercise.id),
+                ]);
 
-            if (!cancelled) {
-                setMax(maxData);
-                setTodaysRecords(todayData);
+                if (!controller.signal.aborted) {
+                    setMax(maxData);
+                    setTodaysRecords(todayData);
 
-                // Pre-fill with today's most recent values if exercise was done today
-                const latest = todayData[0];
-                if (latest !== undefined) {
-                    setLbs(latest.lbs);
-                    setSets(latest.sets);
-                    setReps(latest.reps);
+                    // Pre-fill with today's most recent values if exercise was done today
+                    const latest = todayData[0];
+                    if (latest !== undefined) {
+                        setLbs(latest.lbs);
+                        setSets(latest.sets);
+                        setReps(latest.reps);
+                    }
+                }
+            } catch (error: unknown) {
+                if (error instanceof Error && error.name !== "AbortError") {
+                    throw error;
                 }
             }
         })();
 
         return () => {
-            cancelled = true;
+            controller.abort();
         };
     }, [exercise.id]);
 
@@ -93,8 +100,8 @@ export const ExerciseForm: React.FC<ExerciseFormProperties> = ({ machine, exerci
                             type="number"
                             min={0}
                             value={lbs}
-                            onChange={(e) => {
-                                const v = Number.parseInt(e.target.value, 10);
+                            onChange={(event) => {
+                                const v = Number.parseInt(event.target.value, 10);
                                 setLbs(Number.isNaN(v) ? 0 : Math.max(0, v));
                             }}
                             className="w-24 border border-gray-300 rounded-lg px-3 py-2 text-center text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -112,9 +119,9 @@ export const ExerciseForm: React.FC<ExerciseFormProperties> = ({ machine, exerci
                             type="number"
                             min={0}
                             value={sets}
-                            onChange={(e) => {
-                                const v = Number.parseInt(e.target.value, 10);
-                                setSets(isNaN(v) ? 0 : Math.max(0, v));
+                            onChange={(event) => {
+                                const v = Number.parseInt(event.target.value, 10);
+                                setSets(Number.isNaN(v) ? 0 : Math.max(0, v));
                             }}
                             className="w-24 border border-gray-300 rounded-lg px-3 py-2 text-center text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
@@ -131,9 +138,9 @@ export const ExerciseForm: React.FC<ExerciseFormProperties> = ({ machine, exerci
                             type="number"
                             min={0}
                             value={reps}
-                            onChange={(e) => {
-                                const v = Number.parseInt(e.target.value, 10);
-                                setReps(isNaN(v) ? 0 : Math.max(0, v));
+                            onChange={(error) => {
+                                const v = Number.parseInt(error.target.value, 10);
+                                setReps(Number.isNaN(v) ? 0 : Math.max(0, v));
                             }}
                             className="w-24 border border-gray-300 rounded-lg px-3 py-2 text-center text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />

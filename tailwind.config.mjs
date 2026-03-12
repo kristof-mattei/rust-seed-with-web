@@ -8,4 +8,3 @@ const tailwindCssConfig = {
 };
 
 export default tailwindCssConfig;
-

@@ -1,11 +1,11 @@
 import type React from "react";
 import { useEffect, useState } from "react";
 
-import { ExerciseForm } from "@/components/exercise-form";
-import { ExerciseList } from "@/components/exercise-list";
-import { MachineList } from "@/components/machine-list";
-import { getExercises, getMachines } from "@/services/mock-api";
-import type { Exercise, Machine } from "@/types/fitness";
+import { ExerciseForm } from "@/components/exercise-form.tsx";
+import { ExerciseList } from "@/components/exercise-list.tsx";
+import { MachineList } from "@/components/machine-list.tsx";
+import { getExercises, getMachines } from "@/services/mock-api.ts";
+import type { Exercise, Machine } from "@/types/fitness.tsx";
 
 type AppView =
     | { kind: "exercises"; machine: Machine }

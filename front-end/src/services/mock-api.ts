@@ -48,16 +48,19 @@ function persistRecords(records: ExerciseRecord[]): void {
     localStorage.setItem(RECORDS_KEY, JSON.stringify(records));
 }
 
+// eslint-disable-next-line require-await, @typescript-eslint/require-await
 export async function getMachines(): Promise<Machine[]> {
     return [...MACHINES];
 }
 
+// eslint-disable-next-line require-await, @typescript-eslint/require-await
 export async function getExercises(machineId: string): Promise<Exercise[]> {
-    return EXERCISES.filter((e) => {
-        return e.machineId === machineId;
+    return EXERCISES.filter((exercise) => {
+        return exercise.machineId === machineId;
     });
 }
 
+// eslint-disable-next-line require-await, @typescript-eslint/require-await
 export async function getExerciseMax(exerciseId: string): Promise<ExerciseMax | null> {
     const records = getStoredRecords().filter((r) => {
         return r.exerciseId === exerciseId;
@@ -84,6 +87,7 @@ export async function getExerciseMax(exerciseId: string): Promise<ExerciseMax | 
     };
 }
 
+// eslint-disable-next-line require-await, @typescript-eslint/require-await
 export async function getTodaysRecords(exerciseId: string): Promise<ExerciseRecord[]> {
     const today = new Date().toDateString();
     return getStoredRecords()
@@ -95,6 +99,7 @@ export async function getTodaysRecords(exerciseId: string): Promise<ExerciseReco
         });
 }
 
+// eslint-disable-next-line require-await, @typescript-eslint/require-await
 export async function recordExercise(
     exerciseId: string,
     lbs: number,
