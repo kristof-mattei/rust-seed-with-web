@@ -1,5 +1,3 @@
-import nodePath from "node:path";
-
 import { codecovVitePlugin } from "@codecov/vite-plugin";
 import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
@@ -8,9 +6,10 @@ import type { UserConfig } from "vite";
 import { loadEnv } from "vite";
 import { checker } from "vite-plugin-checker";
 import svgr from "vite-plugin-svgr";
+import type { ViteUserConfigFn } from "vitest/config";
 import { coverageConfigDefaults, defineConfig } from "vitest/config";
 
-export default defineConfig(({ mode }) => {
+const configFunction: ViteUserConfigFn = defineConfig(({ mode }) => {
     const environment = loadEnv(mode, process.cwd(), "");
     const port = Number.parseInt(environment["VITE_PORT"] ?? "");
 
@@ -23,14 +22,11 @@ export default defineConfig(({ mode }) => {
             emptyOutDir: true,
             sourcemap: true,
             outDir: "../../dist",
-            rollupOptions: {
+            rolldownOptions: {
                 output: {},
             },
         },
         resolve: {
-            alias: {
-                "@/": nodePath.resolve("src/"),
-            },
             tsconfigPaths: true,
         },
         plugins: [
@@ -52,6 +48,7 @@ export default defineConfig(({ mode }) => {
         ],
         optimizeDeps: {
             noDiscovery: true,
+            include: ["ip-address", "recharts", "maplibre-gl", "react-dom/client"],
             // exclude: ["src/entrypoints/index.ts"],
         },
         root: "front-end/src",
@@ -95,3 +92,5 @@ export default defineConfig(({ mode }) => {
 
     return config;
 });
+
+export default configFunction;
