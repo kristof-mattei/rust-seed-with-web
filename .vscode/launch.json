@@ -38,8 +38,9 @@
             "type": "lldb",
             "request": "launch",
             "cargo": {
-                "args": ["test", "--bin=rust-seed-with-web"]
+                "args": ["test", "--no-run", "--bin=rust-seed-with-web"]
             },
+            "args": [],
             "env": {
                 "RUST_BACKTRACE": "1",
                 "RUST_LOG": "DEBUG,rust_seed_with_web=TRACE,tower_http::trace=TRACE"
@@ -52,8 +53,9 @@
             "type": "lldb",
             "request": "launch",
             "cargo": {
-                "args": ["test", "--test=integration_tests"]
+                "args": ["test", "--no-run", "--test=integration_tests"]
             },
+            "args": [],
             "env": {
                 "RUST_BACKTRACE": "1",
                 "RUST_LOG": "DEBUG,rust_seed_with_web=TRACE,tower_http::trace=TRACE"
