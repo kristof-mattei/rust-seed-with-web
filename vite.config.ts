@@ -11,7 +11,7 @@ import { coverageConfigDefaults, defineConfig } from "vitest/config";
 
 const configFunction: ViteUserConfigFn = defineConfig(({ mode }) => {
     const environment = loadEnv(mode, process.cwd(), "");
-    const port = Number.parseInt(environment["VITE_PORT"] ?? "");
+    const port = Number.parseInt(environment["VITE_PORT"] ?? "", 10);
 
     const config: UserConfig = {
         appType: "spa",
@@ -48,8 +48,7 @@ const configFunction: ViteUserConfigFn = defineConfig(({ mode }) => {
         ],
         optimizeDeps: {
             noDiscovery: true,
-            include: ["ip-address", "recharts", "maplibre-gl", "react-dom/client"],
-            // exclude: ["src/entrypoints/index.ts"],
+            include: ["react-dom/client"],
         },
         root: "front-end/src",
         server: {
@@ -62,7 +61,7 @@ const configFunction: ViteUserConfigFn = defineConfig(({ mode }) => {
             },
             cors: true,
             proxy: {
-                "/socket.io": {
+                "/api": {
                     target: "http://localhost:3000",
                     changeOrigin: true,
                     secure: false,

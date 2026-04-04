@@ -12,7 +12,10 @@
                 "rust-lang.rust-analyzer",
                 "vadimcn.vscode-lldb",
                 "usernamehw.errorlens"
-            ]
+            ],
+            "settings": {
+                "window.title": "rust-seed-with-web [${remoteName}]"
+            }
         }
     },
     "features": {
