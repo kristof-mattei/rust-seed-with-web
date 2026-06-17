@@ -34,6 +34,7 @@
         "socket.io-client": "4.8.3"
     },
     "devDependencies": {
+<<<<<<< HEAD
         "@codecov/vite-plugin": "2.0.1",
         "@eslint-community/eslint-plugin-eslint-comments": "4.7.2",
         "@eslint/compat": "2.1.0",
@@ -69,6 +70,10 @@
         "eslint-plugin-react-hooks": "7.1.1",
         "eslint-plugin-react-refresh": "0.5.3",
         "eslint-plugin-unicorn": "67.0.0",
+||||||| af26546a
+        "prettier": "3.8.3",
+=======
+>>>>>>> upstream/main
         "prettier": "3.8.4",
         "prettier-plugin-sh": "0.18.1",
         "prettier-plugin-toml": "2.0.6",
