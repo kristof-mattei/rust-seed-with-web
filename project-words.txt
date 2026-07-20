@@ -3,7 +3,6 @@ appgroup
 appuser
 archi
 ataylorme
-binstall
 bkeepers
 buildcache
 Cinstrument
