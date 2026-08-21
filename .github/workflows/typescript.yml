@@ -84,7 +84,6 @@ jobs:
     name: Lint the code
     runs-on: ubuntu-26.04
     permissions:
-      checks: write # eslint-annotate-action creates a check run
       contents: read
     needs:
       - changes
@@ -104,19 +103,8 @@ jobs:
       - name: Run lint
         shell: bash
         run: |
-          pnpm run lint --format=json --output-file reports/lint-report.json || true
-
-          # hack to print results in the console
-          node --print "require('./node_modules/eslint/lib/cli-engine/formatters/stylish.js')(require('./reports/lint-report.json'))"
-
-      - name: Annotate Code Linting Results
-        uses: ataylorme/eslint-annotate-action@5a8d8ab89a57679e90c32750e0f382e9d8570750 # 4.0.0
-        with:
-          fail-on-error: true
-          fail-on-warning: true
-          markdown-report-on-step-summary: true
-          only-pr-files: false
-          report-json: reports/lint-report.json
+          # --format=github emits workflow commands, which annotate the PR without a check run
+          pnpm run lint --format=github
 
   npm-test:
     name: Test the code
