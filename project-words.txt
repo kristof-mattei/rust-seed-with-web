@@ -3,7 +3,6 @@ appgroup
 appuser
 archi
 artipacked
-ataylorme
 bkeepers
 buildcache
 cinstrument
@@ -15,6 +14,7 @@ dorny
 endfor
 endmacro
 errorlens
+formstate
 grcov
 healthz
 hubot
@@ -22,7 +22,6 @@ idents
 jsons
 kristof
 lcovonly
-lldb
 mattei
 mimalloc
 monomorphization
@@ -30,7 +29,6 @@ multiplatform
 mypy
 netsh
 nextest
-nvmrc
 pathbuf
 portproxy
 postprocessors
@@ -42,11 +40,13 @@ retagging
 rustflags
 samply
 sccache
+setvalue
 sigerm
 skopeo
 skopeo's
 startswith
 striptags
+stylesheet
 taiki
 targetplatformdash
 telem
@@ -54,6 +54,7 @@ tera
 topo
 trixie
 trunc
+tsgolint
 uninlined
 uninspectable
 unrs
