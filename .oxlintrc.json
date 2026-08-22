@@ -61,10 +61,14 @@
         "arrow-body-style": ["error", "always"],
         "capitalized-comments": "off",
         "curly": ["error", "all"],
+        // a default arm would silence typescript/switch-exhaustiveness-check
+        "default-case": "off",
         "eqeqeq": ["error", "always"],
         "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+        "id-length": ["error", { "exceptions": ["x", "y"] }],
         "max-lines": "off",
         "max-lines-per-function": "off",
+        "max-statements": "off",
         "no-alert": "error",
         "no-console": "off",
         "no-duplicate-imports": ["error", { "allowSeparateTypeImports": true }],
@@ -83,11 +87,23 @@
             }
         ],
         "no-shadow": "error",
+        "no-use-before-define": [
+            "error",
+            {
+                "classes": true,
+                "enums": false,
+                "functions": false,
+                "typedefs": false,
+                "variables": true
+            }
+        ],
         "no-useless-constructor": "error",
+        "no-void": ["error", { "allowAsStatement": true }],
         "object-shorthand": ["error", "always"],
         "prefer-template": "error",
 
         "oxc/no-async-await": "off",
+        "oxc/no-optional-chaining": "off",
         "oxc/no-rest-spread-properties": "off",
 
         "unicorn/no-array-sort": "off",
@@ -103,11 +119,14 @@
                 "tsx": "never"
             }
         ],
+        "import/exports-last": "off",
+        "import/group-exports": "off",
         "import/newline-after-import": "error",
         "import/no-cycle": "off",
         "import/no-default-export": "off",
         "import/no-named-export": "off",
         "import/no-relative-parent-imports": "off",
+        "import/no-unassigned-import": "error",
         "import/prefer-default-export": "off",
         "import/unambiguous": "off",
 
@@ -161,6 +180,14 @@
         ],
         "typescript/return-await": ["error", "in-try-catch"],
         "typescript/require-await": "error",
+        "typescript/switch-exhaustiveness-check": [
+            "error",
+            {
+                "allowDefaultCaseForExhaustiveSwitch": false,
+                "considerDefaultExhaustiveForUnions": false,
+                "requireDefaultForNonUnion": true
+            }
+        ],
 
         "react/capitalized-calls": "error",
         "react/function-component-definition": [
@@ -233,6 +260,9 @@
             "files": ["*.config.ts", "*.config.mjs", "**/test.setup.ts"],
             "env": {
                 "node": true
+            },
+            "rules": {
+                "import/no-nodejs-modules": "off"
             }
         },
         {
