@@ -16,7 +16,7 @@ const config: OxfmtConfig = defineConfig({
     tabWidth: 4,
     trailingComma: "all",
     useTabs: false,
-    ignorePatterns: ["CHANGELOG.md"],
+    ignorePatterns: [".local/", ".sqlx/", "CHANGELOG.md"],
     overrides: [
         {
             files: ["*.json"],
