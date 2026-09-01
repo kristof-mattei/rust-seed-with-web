@@ -1,4 +1,3 @@
-adduser
 appgroup
 appuser
 archi
@@ -26,17 +25,15 @@ mattei
 mimalloc
 monomorphization
 multiplatform
-mypy
-netsh
 nextest
 pathbuf
-portproxy
 postprocessors
 prereleased
 profraw
 pyflakes
 retag
 retagging
+rhysd
 rustflags
 samply
 sccache
@@ -46,7 +43,6 @@ skopeo
 skopeo's
 startswith
 striptags
-stylesheet
 taiki
 targetplatformdash
 telem
@@ -57,12 +53,10 @@ trunc
 tsgolint
 uninlined
 uninspectable
-unrs
 unseparated
 unstub
 usernamehw
 vadimcn
-venv
 vite
 vitest
 zizmor
