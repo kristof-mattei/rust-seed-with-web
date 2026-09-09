@@ -27,6 +27,7 @@ mimalloc
 monomorphization
 multiplatform
 nextest
+oras
 pathbuf
 postprocessors
 prereleased
