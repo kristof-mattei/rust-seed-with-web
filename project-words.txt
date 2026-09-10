@@ -1,3 +1,4 @@
+allgreen
 appgroup
 appuser
 archi
@@ -16,8 +17,8 @@ endmacro
 errorlens
 formstate
 grcov
+headgreen
 healthz
-hubot
 idents
 jsons
 kristof
