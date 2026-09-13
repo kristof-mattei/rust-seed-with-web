@@ -148,7 +148,7 @@ COPY <<EOF /etc/group
 appgroup:x:900:appuser
 EOF
 
-COPY --from=rust-build /output/bin/${APPLICATION_NAME} /app/entrypoint
+COPY --from=rust-build /output/bin/${APPLICATION_NAME} /app/rust-seed-with-web
 # copy from the sbom layer so that it actually gets built
 COPY --from=typescript-sbom /dist /app/dist
 
@@ -158,4 +158,4 @@ ENV RUST_BACKTRACE=full
 
 WORKDIR /app
 
-ENTRYPOINT ["/app/entrypoint"]
+ENTRYPOINT ["/app/rust-seed-with-web"]
