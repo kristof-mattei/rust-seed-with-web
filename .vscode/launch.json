@@ -11,13 +11,7 @@
             "cargo": {
                 "args": ["run", "--bin=rust-seed-with-web"]
             },
-            "args": [],
-            "env": {
-                "RUST_BACKTRACE": "1",
-                "RUST_LOG": "DEBUG,rust_seed_with_web=TRACE,tower_http::trace=TRACE"
-            },
-            "internalConsoleOptions": "neverOpen",
-            "terminal": "integrated"
+            "args": []
         },
         {
             "name": "Debug executable 'rust-seed-with-web' without RUST_LOG",
@@ -26,12 +20,7 @@
             "cargo": {
                 "args": ["run", "--bin=rust-seed-with-web"]
             },
-            "args": [],
-            "env": {
-                "RUST_BACKTRACE": "1"
-            },
-            "internalConsoleOptions": "neverOpen",
-            "terminal": "integrated"
+            "args": []
         },
         {
             "name": "Debug unit tests in executable 'rust-seed-with-web'",
@@ -40,13 +29,7 @@
             "cargo": {
                 "args": ["test", "--no-run", "--bin=rust-seed-with-web"]
             },
-            "args": [],
-            "env": {
-                "RUST_BACKTRACE": "1",
-                "RUST_LOG": "DEBUG,rust_seed_with_web=TRACE,tower_http::trace=TRACE"
-            },
-            "internalConsoleOptions": "neverOpen",
-            "terminal": "integrated"
+            "args": []
         },
         {
             "name": "Debug integration test 'integration_tests'",
@@ -55,13 +38,7 @@
             "cargo": {
                 "args": ["test", "--no-run", "--test=integration_tests"]
             },
-            "args": [],
-            "env": {
-                "RUST_BACKTRACE": "1",
-                "RUST_LOG": "DEBUG,rust_seed_with_web=TRACE,tower_http::trace=TRACE"
-            },
-            "internalConsoleOptions": "neverOpen",
-            "terminal": "integrated"
+            "args": []
         }
     ]
 }
