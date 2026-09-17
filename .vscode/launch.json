@@ -20,7 +20,10 @@
             "cargo": {
                 "args": ["run", "--bin=rust-seed-with-web"]
             },
-            "args": []
+            "args": [],
+            "env": {
+                "RUST_LOG": ""
+            }
         },
         {
             "name": "Debug unit tests in executable 'rust-seed-with-web'",
