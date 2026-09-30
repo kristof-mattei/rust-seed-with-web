@@ -23,6 +23,10 @@
         "editor.defaultFormatter": "oxc.oxc-vscode",
         "editor.formatOnSave": true
     },
+    "[shellscript]": {
+        "editor.defaultFormatter": "mkhl.shfmt",
+        "editor.formatOnSave": true
+    },
     "[toml]": {
         "editor.defaultFormatter": "oxc.oxc-vscode",
         "editor.formatOnSave": true
@@ -66,5 +70,6 @@
         "RUST_LOG": "DEBUG,rust_seed_with_web=TRACE,tower_http::trace=TRACE"
     },
     "rust-analyzer.rustfmt.extraArgs": ["+nightly"],
-    "rust-analyzer.server.extraEnv": {}
+    "rust-analyzer.server.extraEnv": {},
+    "shfmt.formatIgnored": false
 }
